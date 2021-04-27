@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "+95F/pat/rVaV+ZMGW/dAd6z6uotnkks0p4OR5C9LJyW6/396pqNQbO8n0f/Ezd5bZqOH98Fcbh82bKhY6SKBA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\i.talavyria\\Desktop\\Services\\TradeClientFrameService\\TradeClientFrameService\\TradeClientFrameService.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\i.talavyria\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\i.talavyria\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\i.talavyria\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\i.talavyria\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
+    "C:\\Users\\i.talavyria\\.nuget\\packages\\system.drawing.primitives\\4.3.0\\system.drawing.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\i.talavyria\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\i.talavyria\\.nuget\\packages\\system.runtime.extensions\\4.3.0\\system.runtime.extensions.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}
