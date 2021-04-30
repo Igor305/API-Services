@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BusinessLogicLayer.Models.Response;
+using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Services.Interfaces
 {
     public interface ITradeClientFrameService
     {
-        public void Drawtext();
+        public Task<ImagesReposnseModel> getImages(int stockId);
     }
 }
