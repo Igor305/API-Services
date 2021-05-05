@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using BusinessLogicLayer.Models;
-using BusinessLogicLayer.Models.Response;
 using BusinessLogicLayer.Services.Interfaces;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Repositories.Interfaces;
@@ -21,26 +20,71 @@ namespace BusinessLogicLayer.Services
             _mapper = mapper;
         }
 
-        public async Task<ImagesReposnseModel> getImages(int stockId)
+        public async Task getImagePerDay(int stockId)
         {
+            stockId = FirstShop(stockId);
+
+            ItExecutionPlanShop itExecutionPlanShop = await _iitExecutionPlanShopRepository.getInfoForStockId(stockId);
+
+            ItExecutionPlanShopModel itExecutionPlanShopModel = _mapper.Map<ItExecutionPlanShop, ItExecutionPlanShopModel>(itExecutionPlanShop);
+            
+            getImagePlanDay(itExecutionPlanShopModel);
+        }
+
+        public async Task getImagePerMonth(int stockId)
+        {
+            stockId = FirstShop(stockId);
+
             ItExecutionPlanShop itExecutionPlanShop = await _iitExecutionPlanShopRepository.getInfoForStockId(stockId);
 
             ItExecutionPlanShopModel itExecutionPlanShopModel = _mapper.Map<ItExecutionPlanShop, ItExecutionPlanShopModel>(itExecutionPlanShop);
 
-            ImagesReposnseModel imagesReposnseModel = new ImagesReposnseModel();
-
-            imagesReposnseModel.ImagePlanDay = getImagePlanDay(itExecutionPlanShopModel);
-           // imagesReposnseModel.ImagePlanMonth = getImagePlanMonth(itExecutionPlanShopModel);
-           // imagesReposnseModel.ImageForecast = getImageForecast(itExecutionPlanShopModel);
-
-            return imagesReposnseModel;
+            getImagePlanMonth(itExecutionPlanShopModel);
         }
-        
+
+        public async Task getImagePerForecast(int stockId)
+        {
+            stockId = FirstShop(stockId);
+
+            ItExecutionPlanShop itExecutionPlanShop = await _iitExecutionPlanShopRepository.getInfoForStockId(stockId);
+
+            ItExecutionPlanShopModel itExecutionPlanShopModel = _mapper.Map<ItExecutionPlanShop, ItExecutionPlanShopModel>(itExecutionPlanShop);
+
+            getImageForecast(itExecutionPlanShopModel);
+        }
+
+        private int FirstShop(int stockId)
+        {
+            if (stockId == 1)
+            {
+                stockId = 100;
+            }
+            return stockId;
+        }
+
         private Bitmap getImagePlanDay(ItExecutionPlanShopModel itExecutionPlanShopModel)
         {
-            Bitmap bitmap = new Bitmap(500, 150);
+            Bitmap bitmap = new Bitmap(450, 150);
             using (Graphics graphic = Graphics.FromImage(bitmap))
             {
+                int nDigitsFactDay = 0;
+                int nDigitsPlanDay = 0;
+
+                if (itExecutionPlanShopModel != null)
+                {
+                    nDigitsFactDay = nDigits(itExecutionPlanShopModel.FactDay);
+                    nDigitsPlanDay = nDigits(itExecutionPlanShopModel.PlanDay);
+                }
+
+                if (nDigitsFactDay == 0)
+                {
+                    nDigitsFactDay++;
+                }
+
+                if (nDigitsPlanDay == 0)
+                {
+                    nDigitsPlanDay++;
+                }
                 Font font = new Font("Arial", 23);
                 SolidBrush drawBrush = new SolidBrush(Color.Gray);
 
@@ -57,14 +101,20 @@ namespace BusinessLogicLayer.Services
                      new Point(45, 20),
                      new Point(5, 20),
                      new Point(5, 145),
-                     new Point(495, 145),
-                     new Point(495, 20),
+                     new Point(445, 145),
+                     new Point(445, 20),
                      new Point(165, 20)
                 };
                 graphic.DrawLines(pen, points);
 
-                Decimal decPercentForDay = Convert.ToDecimal(itExecutionPlanShopModel.PercentForDay);
-                string percentForDay = $"{Math.Round(decPercentForDay, 2)}%";
+                Decimal decPercentForDay = 0;
+
+                if (itExecutionPlanShopModel != null)
+                {
+                    decPercentForDay = Convert.ToDecimal(itExecutionPlanShopModel.PercentForDay);
+                }
+
+                string percentForDay = $"{Math.Round(decPercentForDay, 1)}%";
 
                 font = new Font("Arial", 50);
 
@@ -83,41 +133,70 @@ namespace BusinessLogicLayer.Services
 
                 graphic.DrawString(percentForDay, font, drawBrush, x, y);
 
-                Decimal decFactDay = Convert.ToDecimal(itExecutionPlanShopModel.FactDay);
+                Decimal decFactDay = 0;
+
+                if (itExecutionPlanShopModel != null)
+                {
+                    decFactDay = Convert.ToDecimal(itExecutionPlanShopModel.FactDay);
+                }
+
                 string formatFactDay = formatDecimal(decFactDay);
                 string factDay = $"Ф:{formatFactDay}";
 
                 font = new Font("Arial", 28);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 280;
+                x = 450 - (nDigitsFactDay * 25) - 50;
                 y = 40;
 
                 graphic.DrawString(factDay, font, drawBrush, x, y);
 
-                Decimal decPlanDay = Convert.ToDecimal(itExecutionPlanShopModel.PlanDay);
+                Decimal decPlanDay = 0;
+
+                if (itExecutionPlanShopModel != null)
+                {
+                    decPlanDay = Convert.ToDecimal(itExecutionPlanShopModel.PlanDay);
+                }
+
                 string formatPlanDay = formatDecimal(decPlanDay);
                 string planDay = $"П:{formatPlanDay}";
 
                 font = new Font("Arial", 28);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 280;
+                x = 450 - (nDigitsPlanDay * 25) - 50;
                 y = 90;
 
                 graphic.DrawString(planDay, font, drawBrush, x, y);
 
             }
-            bitmap.Save("PlanDay.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            bitmap.Save("PlanDay.png", System.Drawing.Imaging.ImageFormat.Png);
 
             return bitmap;
-        }
-
-    
+        } 
 
         private void getImagePlanMonth(ItExecutionPlanShopModel itExecutionPlanShopModel)
         {
-            Bitmap bitmap = new Bitmap(500, 150);
+            Bitmap bitmap = new Bitmap(450, 150);
             using (Graphics graphic = Graphics.FromImage(bitmap))
             {
+                int nDigitsFactMonth = 0;
+                int nDigitsPlanMonth = 0;
+
+                if (itExecutionPlanShopModel != null)
+                {
+                    nDigitsFactMonth = nDigits(itExecutionPlanShopModel.FactMonth);
+                    nDigitsPlanMonth = nDigits(itExecutionPlanShopModel.PlanMonth);
+                }
+
+                if (nDigitsFactMonth == 0)
+                {
+                    nDigitsFactMonth++;
+                }
+
+                if (nDigitsPlanMonth == 0)
+                {
+                    nDigitsPlanMonth++;
+                }
+
                 Font font = new Font("Arial", 23);
                 SolidBrush drawBrush = new SolidBrush(Color.Gray);
 
@@ -134,14 +213,20 @@ namespace BusinessLogicLayer.Services
                      new Point(45, 20),
                      new Point(5, 20),
                      new Point(5, 145),
-                     new Point(495, 145),
-                     new Point(495, 20),
+                     new Point(445, 145),
+                     new Point(445, 20),
                      new Point(140, 20)
                 };
                 graphic.DrawLines(pen, points);
 
-                Decimal decPercentForMonth  = Convert.ToDecimal(itExecutionPlanShopModel.PercentForMonth);
-                string percentForMonth = $"{Math.Round(decPercentForMonth, 2)}%";
+                Decimal decPercentForMonth = 0;
+
+                if (itExecutionPlanShopModel != null) 
+                {
+                    decPercentForMonth = Convert.ToDecimal(itExecutionPlanShopModel.PercentForMonth);
+                }
+
+                string percentForMonth = $"{Math.Round(decPercentForMonth, 1)}%";
 
                 font = new Font("Arial", 50);
 
@@ -160,24 +245,36 @@ namespace BusinessLogicLayer.Services
 
                 graphic.DrawString(percentForMonth, font, drawBrush, x, y);
 
-                Decimal decFactMonth = Convert.ToDecimal(itExecutionPlanShopModel.FactMonth);
+                Decimal decFactMonth = 0;
+
+                if (itExecutionPlanShopModel != null)
+                {
+                    decFactMonth = Convert.ToDecimal(itExecutionPlanShopModel.FactMonth);
+                }
+
                 string formatFactMonth = formatDecimal(decFactMonth);
                 string factMonth = $"Ф:{formatFactMonth}";
 
                 font = new Font("Arial", 28);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 280;
+                x = 450 - (nDigitsFactMonth * 25) - 50;
                 y = 40;
 
                 graphic.DrawString(factMonth, font, drawBrush, x, y);
 
-                Decimal decPlanMonth = Convert.ToDecimal(itExecutionPlanShopModel.PlanMonth);
+                Decimal decPlanMonth = 0;
+
+                if (itExecutionPlanShopModel != null)
+                {
+                    decPlanMonth = Convert.ToDecimal(itExecutionPlanShopModel.PlanMonth);
+                }
+
                 string formatPlanMonth = formatDecimal(decPlanMonth);
                 string planMonth = $"П:{formatPlanMonth}";
 
                 font = new Font("Arial", 28);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 280;
+                x = 450 - (nDigitsPlanMonth * 25) - 50;
                 y = 90;
 
                 graphic.DrawString(planMonth, font, drawBrush, x, y);
@@ -189,7 +286,7 @@ namespace BusinessLogicLayer.Services
         private void getImageForecast(ItExecutionPlanShopModel itExecutionPlanShopModel)
         {
 
-            Bitmap bitmap = new Bitmap(300, 150);
+            Bitmap bitmap = new Bitmap(240, 150);
             using (Graphics graphic = Graphics.FromImage(bitmap))
             {
                 Font font = new Font("Arial", 23);
@@ -208,14 +305,20 @@ namespace BusinessLogicLayer.Services
                      new Point(45, 20),
                      new Point(5, 20),
                      new Point(5, 145),
-                     new Point(295, 145),
-                     new Point(295, 20),
+                     new Point(235, 145),
+                     new Point(235, 20),
                      new Point(165, 20)
                 };
                 graphic.DrawLines(pen, points);
 
-                Decimal decPercentForForecast = Convert.ToDecimal(itExecutionPlanShopModel.PercentForecast);
-                string percentForForecast = $"{Math.Round(decPercentForForecast, 2)}%";
+                Decimal decPercentForForecast = 0;
+
+                if (itExecutionPlanShopModel != null)
+                {
+                    decPercentForForecast = Convert.ToDecimal(itExecutionPlanShopModel.PercentForecast);
+                }
+
+                string percentForForecast = $"{Math.Round(decPercentForForecast, 1)}%";
 
                 font = new Font("Arial", 50);
 
@@ -275,7 +378,8 @@ namespace BusinessLogicLayer.Services
 
             if (value < 1000)
             {
-                svalue = $"value";
+                value = Math.Truncate(value);
+                svalue = $"{value}";
             }
 
             return svalue;
@@ -299,6 +403,24 @@ namespace BusinessLogicLayer.Services
             }
 
             return svalue;
+        }
+
+        private int nDigits(decimal? value)
+        {
+            decimal dec = Convert.ToDecimal(value);
+            dec = Math.Truncate(dec);
+
+            int nDigits = 0;
+
+            while(dec > 0)
+            {
+                dec /= 10;
+                dec = Math.Truncate(dec);
+
+                nDigits++;
+            }
+
+            return nDigits;
         }
     }
 }

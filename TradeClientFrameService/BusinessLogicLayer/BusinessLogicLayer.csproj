@@ -14,4 +14,8 @@
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Response\" />
+  </ItemGroup>
+
 </Project>

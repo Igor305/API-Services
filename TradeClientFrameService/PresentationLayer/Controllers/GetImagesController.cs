@@ -1,6 +1,6 @@
 ﻿using BusinessLogicLayer.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.IO;
+using System;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -18,16 +18,37 @@ namespace PresentationLayer.Controllers
             _tradeClientFrameService = tradeClientFrameService;
         }
 
-        [HttpGet("{id}")]
-        public async Task<VirtualFileResult> GetImage(int id)
+        [HttpGet("day/{id}")]
+        public async Task<IActionResult> getImagePerDay(int id)
         {
-            await _tradeClientFrameService.getImages(id);
+            await _tradeClientFrameService.getImagePerDay(id);
 
-             var df = File("PlanDay.jpg", "image/jpeg");
+            Byte[] file_path = System.IO.File.ReadAllBytes(@"PlanDay.png");                                                                                                                                                                 //  FileStream fs = new FileStream(path, FileMode.Open);
+            string file_type = "image/png";
+            string file_name = "PlanDay.png";
+            return File(file_path, file_type, file_name);        
+        }
 
-            return df;
-            /* var filepath = Path.Combine("~/Files", "PlanDay.jpg");
-             return File(filepath, "image/jpg", "PlanDay.jpg");*/
+        [HttpGet("month/{id}")]
+        public async Task<IActionResult> getImagePerMonth(int id)
+        {
+            await _tradeClientFrameService.getImagePerMonth(id);
+
+            Byte[] file_path = System.IO.File.ReadAllBytes(@"PlanMonth.png");                                                                                                                                                                 //  FileStream fs = new FileStream(path, FileMode.Open);
+            string file_type = "image/png";
+            string file_name = "PlanMonth.png";
+            return File(file_path, file_type, file_name);
+        }
+
+        [HttpGet("forecast/{id}")]
+        public async Task<IActionResult> getImagePerForecast(int id)
+        {
+            await _tradeClientFrameService.getImagePerForecast(id);
+
+            Byte[] file_path = System.IO.File.ReadAllBytes(@"PlanForecast.png");                                                                                                                                                                 //  FileStream fs = new FileStream(path, FileMode.Open);
+            string file_type = "image/png";
+            string file_name = "PlanForecast.png";
+            return File(file_path, file_type, file_name);
         }
     }
 }
