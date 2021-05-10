@@ -128,10 +128,18 @@ namespace BusinessLogicLayer.Services
                     drawBrush = new SolidBrush(Color.Green);
                 }
 
-                x = 10;
+                x = 20;
                 y = 50;
 
                 graphic.DrawString(percentForDay, font, drawBrush, x, y);
+
+                string f = $"Ф:";
+                font = new Font("Arial", 28);
+                drawBrush = new SolidBrush(Color.Gray);
+                x = 250;
+                y = 40;
+
+                graphic.DrawString(f, font, drawBrush, x, y);
 
                 Decimal decFactDay = 0;
 
@@ -141,14 +149,22 @@ namespace BusinessLogicLayer.Services
                 }
 
                 string formatFactDay = formatDecimal(decFactDay);
-                string factDay = $"Ф:{formatFactDay}";
+                string factDay = $"{formatFactDay}";
 
                 font = new Font("Arial", 28);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 450 - (nDigitsFactDay * 25) - 50;
+                x = 450 - (nDigitsFactDay * 25) - 10;
                 y = 40;
 
                 graphic.DrawString(factDay, font, drawBrush, x, y);
+
+                string p = $"П:";
+                font = new Font("Arial", 28);
+                drawBrush = new SolidBrush(Color.Gray);
+                x = 250;
+                y = 90;
+
+                graphic.DrawString(p, font, drawBrush, x, y);
 
                 Decimal decPlanDay = 0;
 
@@ -158,11 +174,11 @@ namespace BusinessLogicLayer.Services
                 }
 
                 string formatPlanDay = formatDecimal(decPlanDay);
-                string planDay = $"П:{formatPlanDay}";
+                string planDay = $"{formatPlanDay}";
 
                 font = new Font("Arial", 28);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 450 - (nDigitsPlanDay * 25) - 50;
+                x = 450 - (nDigitsPlanDay * 25) - 10;
                 y = 90;
 
                 graphic.DrawString(planDay, font, drawBrush, x, y);
@@ -245,6 +261,14 @@ namespace BusinessLogicLayer.Services
 
                 graphic.DrawString(percentForMonth, font, drawBrush, x, y);
 
+                string f = $"Ф:";
+                font = new Font("Arial", 28);
+                drawBrush = new SolidBrush(Color.Gray);
+                x = 225;
+                y = 40;
+
+                graphic.DrawString(f, font, drawBrush, x, y);
+
                 Decimal decFactMonth = 0;
 
                 if (itExecutionPlanShopModel != null)
@@ -253,14 +277,22 @@ namespace BusinessLogicLayer.Services
                 }
 
                 string formatFactMonth = formatDecimal(decFactMonth);
-                string factMonth = $"Ф:{formatFactMonth}";
+                string factMonth = $"{formatFactMonth}";
 
                 font = new Font("Arial", 28);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 450 - (nDigitsFactMonth * 25) - 50;
+                x = 450 - (nDigitsFactMonth * 25) - 10;
                 y = 40;
 
                 graphic.DrawString(factMonth, font, drawBrush, x, y);
+
+                string p = $"П:";
+                font = new Font("Arial", 28);
+                drawBrush = new SolidBrush(Color.Gray);
+                x = 225;
+                y = 90;
+
+                graphic.DrawString(p, font, drawBrush, x, y);
 
                 Decimal decPlanMonth = 0;
 
@@ -270,11 +302,11 @@ namespace BusinessLogicLayer.Services
                 }
 
                 string formatPlanMonth = formatDecimal(decPlanMonth);
-                string planMonth = $"П:{formatPlanMonth}";
+                string planMonth = $"{formatPlanMonth}";
 
                 font = new Font("Arial", 28);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 450 - (nDigitsPlanMonth * 25) - 50;
+                x = 450 - (nDigitsPlanMonth * 25) - 10;
                 y = 90;
 
                 graphic.DrawString(planMonth, font, drawBrush, x, y);
