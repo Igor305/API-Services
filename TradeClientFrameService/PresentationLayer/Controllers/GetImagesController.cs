@@ -18,6 +18,17 @@ namespace PresentationLayer.Controllers
             _tradeClientFrameService = tradeClientFrameService;
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> getAllInOneImage(int id)
+        {
+            await _tradeClientFrameService.getAllInOneImage(id);
+
+            Byte[] file_path = System.IO.File.ReadAllBytes(@"Plan.png");                                                                                                                                                                 //  FileStream fs = new FileStream(path, FileMode.Open);
+            string file_type = "image/png";
+            string file_name = "Plan.png";
+            return File(file_path, file_type, file_name);
+        }
+
         [HttpGet("day/{id}")]
         public async Task<IActionResult> getImagePerDay(int id)
         {
