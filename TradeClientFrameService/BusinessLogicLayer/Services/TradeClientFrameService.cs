@@ -66,7 +66,7 @@ namespace BusinessLogicLayer.Services
 
         private Bitmap getAllInOneImage(ItExecutionPlanShopModel itExecutionPlanShopModel)
         {
-            Bitmap bitmap = new Bitmap(666, 60);
+            Bitmap bitmap = new Bitmap(686, 60);
             using (Graphics graphic = Graphics.FromImage(bitmap))
             {
                 // Day
@@ -105,8 +105,8 @@ namespace BusinessLogicLayer.Services
                      new Point(25, 7),
                      new Point(1, 7),
                      new Point(1, 57),
-                     new Point(664, 57),
-                     new Point(664, 7),
+                     new Point(684, 57),
+                     new Point(684, 7),
                      new Point(640, 7)
                 };
                 graphic.DrawLines(pen, points);
@@ -632,7 +632,7 @@ namespace BusinessLogicLayer.Services
         private void getImageForecast(ItExecutionPlanShopModel itExecutionPlanShopModel)
         {
 
-            Bitmap bitmap = new Bitmap(120, 60);
+            Bitmap bitmap = new Bitmap(140, 60);
             using (Graphics graphic = Graphics.FromImage(bitmap))
             {
                 Font font = new Font("Arial", 12);
@@ -651,8 +651,8 @@ namespace BusinessLogicLayer.Services
                      new Point(25, 7),
                      new Point(1, 7),
                      new Point(1, 57),
-                     new Point(118, 57),
-                     new Point(118, 7),
+                     new Point(138, 57),
+                     new Point(138, 7),
                      new Point(100, 7)
                 };
                 graphic.DrawLines(pen, points);
