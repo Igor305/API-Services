@@ -41,7 +41,6 @@ C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\Presen
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\PresentationLayer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\PresentationLayer\bin\Debug\netcoreapp3.1\BusinessLogicLayer.dll
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\PresentationLayer\bin\Debug\netcoreapp3.1\BusinessLogicLayer.pdb
-C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\PresentationLayer\obj\Debug\netcoreapp3.1\PresentationLayer.csprojAssemblyReference.cache
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\PresentationLayer\obj\Debug\netcoreapp3.1\PresentationLayer.AssemblyInfoInputs.cache
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\PresentationLayer\obj\Debug\netcoreapp3.1\PresentationLayer.AssemblyInfo.cs
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\PresentationLayer\obj\Debug\netcoreapp3.1\PresentationLayer.csproj.CoreCompileInputs.cache
@@ -103,3 +102,4 @@ C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\Presen
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\PresentationLayer\bin\Debug\netcoreapp3.1\DataAccessLayer.dll
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\PresentationLayer\bin\Debug\netcoreapp3.1\DataAccessLayer.pdb
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\PresentationLayer\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\PresentationLayer\obj\Debug\netcoreapp3.1\PresentationLayer.csproj.AssemblyReference.cache

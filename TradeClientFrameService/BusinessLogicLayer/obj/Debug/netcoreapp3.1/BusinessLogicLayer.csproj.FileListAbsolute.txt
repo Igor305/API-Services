@@ -10,7 +10,6 @@ C:\Users\i.talavyria\Desktop\Services\TradeClientFrameService\BusinessLogicLayer
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\BusinessLogicLayer\bin\Debug\netcoreapp3.1\BusinessLogicLayer.deps.json
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\BusinessLogicLayer\bin\Debug\netcoreapp3.1\BusinessLogicLayer.dll
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\BusinessLogicLayer\bin\Debug\netcoreapp3.1\BusinessLogicLayer.pdb
-C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.csprojAssemblyReference.cache
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.AssemblyInfoInputs.cache
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.AssemblyInfo.cs
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.csproj.CoreCompileInputs.cache
@@ -19,3 +18,4 @@ C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\Busine
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\BusinessLogicLayer\bin\Debug\netcoreapp3.1\DataAccessLayer.dll
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\BusinessLogicLayer\bin\Debug\netcoreapp3.1\DataAccessLayer.pdb
 C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.csproj.CopyComplete
+C:\Users\i.talavyria\Desktop\project\API-Services\TradeClientFrameService\BusinessLogicLayer\obj\Debug\netcoreapp3.1\BusinessLogicLayer.csproj.AssemblyReference.cache
