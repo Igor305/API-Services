@@ -66,7 +66,7 @@ namespace BusinessLogicLayer.Services
 
         private Bitmap getAllInOneImage(ItExecutionPlanShopModel itExecutionPlanShopModel)
         {
-            Bitmap bitmap = new Bitmap(686, 60);
+            Bitmap bitmap = new Bitmap(721, 60);
             using (Graphics graphic = Graphics.FromImage(bitmap))
             {
                 // Day
@@ -92,7 +92,7 @@ namespace BusinessLogicLayer.Services
                 Font font = new Font("Verdana", 11);
                 SolidBrush drawBrush = new SolidBrush(Color.Gray);
 
-                float x = 26;
+                float x = 11;
                 float y = 0;
 
                 graphic.Clear(Color.FromArgb(239, 239, 239));
@@ -102,26 +102,26 @@ namespace BusinessLogicLayer.Services
 
                 Point[] points =
                 {
-                     new Point(25, 7),
+                     new Point(10, 7),
                      new Point(1, 7),
                      new Point(1, 58),
-                     new Point(684, 58),
-                     new Point(684, 7),
-                     new Point(640, 7)
+                     new Point(719, 58),
+                     new Point(719, 7),
+                     new Point(675, 7)
                 };
                 graphic.DrawLines(pen, points);
 
                 Point[] points2 =
                 {
-                       new Point(570, 7),
-                       new Point(353, 7)
+                       new Point(605, 7),
+                       new Point(328, 7)
                 };
                 graphic.DrawLines(pen, points2);
 
                 Point[] points3=
                 {
-                       new Point(300, 7),
-                       new Point(95, 7)
+                       new Point(275, 7),
+                       new Point(80, 7)
                 };
                 graphic.DrawLines(pen, points3);
 
@@ -134,8 +134,8 @@ namespace BusinessLogicLayer.Services
 
                 Point[] points5 =
                 {
-                       new Point(536, 7),
-                       new Point(536, 57)
+                       new Point(570, 7),
+                       new Point(570, 57)
                 };
                 graphic.DrawLines(pen, points5);
 
@@ -161,22 +161,22 @@ namespace BusinessLogicLayer.Services
                 }
 
                 x = 25;
-                y = 27;
+                y = 25;
 
                 graphic.DrawString(percentForDay, font, drawBrush, x, y);
 
                 string text = $"Выполнение плана на сегодня";
-                font = new Font("Verdana", 10);
+                font = new Font("Verdana", 8);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 10;
-                y = 15;
+                x = 80;
+                y = 10;
 
                 graphic.DrawString(text, font, drawBrush, x, y);
 
                 string f = $"Факт:";
                 font = new Font("Verdana", 10);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 150;
+                x = 165;
                 y = 27;
 
                 graphic.DrawString(f, font, drawBrush, x, y);
@@ -201,7 +201,7 @@ namespace BusinessLogicLayer.Services
                 string p = $"План:";
                 font = new Font("Verdana", 10);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 147;
+                x = 165;
                 y = 40;
 
                 graphic.DrawString(p, font, drawBrush, x, y);
@@ -247,7 +247,7 @@ namespace BusinessLogicLayer.Services
                 font = new Font("Verdana", 11);
                 drawBrush = new SolidBrush(Color.Gray);
 
-                x = 299;
+                x = 275;
                 y = 0;
 
                 graphic.DrawString("Месяц", font, drawBrush, x, y);
@@ -273,23 +273,23 @@ namespace BusinessLogicLayer.Services
                     drawBrush = new SolidBrush(Color.Green);
                 }
 
-                x = 293;
-                y = 27;
+                x = 303;
+                y = 25;
 
                 graphic.DrawString(percentForMonth, font, drawBrush, x, y);
 
                 string textMonth = $"Выполнение c начала месяца по сегодня";
-                font = new Font("Verdana", 9);
+                font = new Font("Verdana", 8);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 267;
-                y = 15;
+                x = 330;
+                y = 10;
 
                 graphic.DrawString(textMonth, font, drawBrush, x, y);
 
                 f = $"Факт:";
                 font = new Font("Verdana", 10);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 413;
+                x = 458;
                 y = 27;
 
                 graphic.DrawString(f, font, drawBrush, x, y);
@@ -306,7 +306,7 @@ namespace BusinessLogicLayer.Services
 
                 font = new Font("Verdana", 10);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 510 - (nDigitsFactMonth * 5) - 10;
+                x = 545 - (nDigitsFactMonth * 5) - 10;
                 y = 27;
 
                 graphic.DrawString(factMonth, font, drawBrush, x, y);
@@ -314,7 +314,7 @@ namespace BusinessLogicLayer.Services
                 p = $"План:";
                 font = new Font("Verdana", 10);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 413;
+                x = 458;
                 y = 40;
 
                 graphic.DrawString(p, font, drawBrush, x, y);
@@ -331,7 +331,7 @@ namespace BusinessLogicLayer.Services
 
                 font = new Font("Verdana", 10);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 510 - (nDigitsPlanMonth * 5) - 10;
+                x = 545 - (nDigitsPlanMonth * 5) - 10;
                 y = 40;
 
                 graphic.DrawString(planMonth, font, drawBrush, x, y);
@@ -341,7 +341,7 @@ namespace BusinessLogicLayer.Services
                 font = new Font("Verdana", 11);
                 drawBrush = new SolidBrush(Color.Gray);
 
-                x = 572;
+                x = 607;
                 y = 0;
 
                 graphic.DrawString("Прогноз", font, drawBrush, x, y);
@@ -360,16 +360,16 @@ namespace BusinessLogicLayer.Services
                 string textForecast = $"Возможное выполнение";
                 font = new Font("Verdana", 8);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 538;
-                y = 14;
+                x = 572;
+                y = 15;
 
                 graphic.DrawString(textForecast, font, drawBrush, x, y);
 
                 textForecast = $"плана на конец месяца";
                 font = new Font("Verdana", 8);
                 drawBrush = new SolidBrush(Color.Gray);
-                x = 538;
-                y = 23;
+                x = 574;
+                y = 24;
 
                 graphic.DrawString(textForecast, font, drawBrush, x, y);
 
@@ -387,7 +387,7 @@ namespace BusinessLogicLayer.Services
                     drawBrush = new SolidBrush(Color.Green);
                 }
 
-                x = 575;
+                x = 610;
                 y = 35;
 
                 graphic.DrawString(percentForForecast, font, drawBrush, x, y);
