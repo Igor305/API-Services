@@ -13,16 +13,23 @@ namespace StoresOpeningService.Controllers
     {
         private readonly IShopsInfoService _shopsInfoService;
 
-        public ShopsInfoController (IShopsInfoService shopsInfoService)
+        public ShopsInfoController(IShopsInfoService shopsInfoService)
         {
             _shopsInfoService = shopsInfoService;
         }
 
         [HttpGet]
-
         public async Task<ShopsInfoResponseModel> getAllInfo()
         {
             ShopsInfoResponseModel shopsInfoResponseModel = await _shopsInfoService.getInfoForAllShops();
+
+            return shopsInfoResponseModel;
+        }
+
+        [HttpGet("status")]
+        public async Task<ShopsInfoResponseModel> getAllInfo([FromQuery] int id)
+        {
+            ShopsInfoResponseModel shopsInfoResponseModel = await _shopsInfoService.getInfoForShopsByStatus(id);
 
             return shopsInfoResponseModel;
         }

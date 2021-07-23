@@ -15,10 +15,10 @@ C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\DataAccessLayer\b
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\DataAccessLayer\bin\Release\netcoreapp3.1\DataAccessLayer.runtimeconfig.dev.json
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\DataAccessLayer\bin\Release\netcoreapp3.1\DataAccessLayer.dll
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\DataAccessLayer\bin\Release\netcoreapp3.1\DataAccessLayer.pdb
-C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\DataAccessLayer\obj\Release\netcoreapp3.1\DataAccessLayer.csprojAssemblyReference.cache
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\DataAccessLayer\obj\Release\netcoreapp3.1\DataAccessLayer.AssemblyInfoInputs.cache
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\DataAccessLayer\obj\Release\netcoreapp3.1\DataAccessLayer.AssemblyInfo.cs
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\DataAccessLayer\obj\Release\netcoreapp3.1\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\DataAccessLayer\obj\Release\netcoreapp3.1\DataAccessLayer.dll
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\DataAccessLayer\obj\Release\netcoreapp3.1\DataAccessLayer.pdb
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\DataAccessLayer\obj\Release\netcoreapp3.1\DataAccessLayer.genruntimeconfig.cache
+C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\DataAccessLayer\obj\Release\netcoreapp3.1\DataAccessLayer.csproj.AssemblyReference.cache

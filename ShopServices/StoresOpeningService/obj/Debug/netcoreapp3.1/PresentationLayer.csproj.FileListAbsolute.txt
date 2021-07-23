@@ -1,4 +1,3 @@
-C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Debug\netcoreapp3.1\PresentationLayer.csprojAssemblyReference.cache
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Debug\netcoreapp3.1\PresentationLayer.AssemblyInfoInputs.cache
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Debug\netcoreapp3.1\PresentationLayer.AssemblyInfo.cs
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Debug\netcoreapp3.1\PresentationLayer.csproj.CoreCompileInputs.cache
@@ -70,3 +69,4 @@ C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningServ
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Debug\netcoreapp3.1\PresentationLayer.dll
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Debug\netcoreapp3.1\PresentationLayer.pdb
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Debug\netcoreapp3.1\PresentationLayer.genruntimeconfig.cache
+C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Debug\netcoreapp3.1\PresentationLayer.csproj.AssemblyReference.cache

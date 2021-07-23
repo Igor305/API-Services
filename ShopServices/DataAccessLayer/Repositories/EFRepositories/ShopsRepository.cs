@@ -25,6 +25,13 @@ namespace DataAccessLayer.Repositories.EFRepositories
             return shops;
         }
 
+        public async Task<List<Shop>> getShopsByStatus(int statusId)
+        {
+            List<Shop> shops = await _shopsContext.Shops.OrderBy(x => x.ShopNumber).Where(x=>x.StatusId == statusId).ToListAsync();
+
+            return shops;
+        }
+
         public async Task<List<Shop>> getAllStoresOpening()
         {
             List<Shop> shops = await _shopsContext.Shops.Where(x => x.OpenFrom != null && x.OpenFrom.Value > DateTime.Now).ToListAsync();
