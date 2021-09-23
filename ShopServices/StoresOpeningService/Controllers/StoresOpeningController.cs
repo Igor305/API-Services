@@ -9,17 +9,21 @@ using System.Threading.Tasks;
 
 namespace StoresOpeningService.Controllers
 {
+    [Produces("application/json")]
     [Route("[controller]")]
     [ApiController]
-    public class StoresOpeningController : ControllerBase
+    public class storesOpeningController : ControllerBase
     {
         private readonly IShopsOpeningService _shopService;
 
-        public StoresOpeningController(IShopsOpeningService shopsService)
+        public storesOpeningController(IShopsOpeningService shopsService)
         {
             _shopService = shopsService;
         }
-
+        /// <summary>
+        /// Cписок відкриттів у майбутньому
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<List<ShopsResponseModel>> getAllStoresOpening()
         {
@@ -27,7 +31,12 @@ namespace StoresOpeningService.Controllers
 
             return shopsResponseModels;
         }
-
+        /// <summary>
+        /// Cписок відкриттів у періоді
+        /// </summary>
+        /// <param name="from">Початкова дата</param>
+        /// <param name="till">Кінцева дата</param>
+        /// <returns></returns>
         [HttpGet("period")]
         public async Task<List<ShopsResponseModel>> getAllStoresOpening([FromQuery]DateTime from, [FromQuery]DateTime till)
         {

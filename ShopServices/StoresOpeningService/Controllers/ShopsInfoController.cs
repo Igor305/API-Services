@@ -7,17 +7,22 @@ using System.Threading.Tasks;
 
 namespace StoresOpeningService.Controllers
 {
+    [Produces("application/json")]
     [Route("[controller]")]
     [ApiController]
-    public class ShopsInfoController : ControllerBase
+    public class shopsInfoController : ControllerBase
     {
         private readonly IShopsInfoService _shopsInfoService;
 
-        public ShopsInfoController(IShopsInfoService shopsInfoService)
+        public shopsInfoController(IShopsInfoService shopsInfoService)
         {
             _shopsInfoService = shopsInfoService;
         }
 
+        /// <summary>
+        /// Cписок всіх магазинів
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ShopsInfoResponseModel> getAllInfo()
         {
@@ -26,13 +31,17 @@ namespace StoresOpeningService.Controllers
             return shopsInfoResponseModel;
         }
 
+        /// <summary>
+        /// Cписок магазинів із зазначеним статусом
+        /// </summary>
+        /// <param name="statusId">Номер статусу</param>
+        /// <returns></returns>
         [HttpGet("status")]
-        public async Task<ShopsInfoResponseModel> getAllInfo([FromQuery] int id)
+        public async Task<ShopsInfoResponseModel> getAllInfo([FromQuery] int statusId)
         {
-            ShopsInfoResponseModel shopsInfoResponseModel = await _shopsInfoService.getInfoForShopsByStatus(id);
+            ShopsInfoResponseModel shopsInfoResponseModel = await _shopsInfoService.getInfoForShopsByStatus(statusId);
 
             return shopsInfoResponseModel;
         }
-
     }
 }

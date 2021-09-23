@@ -11,6 +11,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace PresentationLayer
 {
@@ -36,9 +40,37 @@ namespace PresentationLayer
             services.AddScoped<IStreetsLocalizationRepository, StreetsLocalizationRepository>();
             services.AddScoped<IShopRegionLocalizationRepository, ShopRegionLocalizationRepository>();
             services.AddScoped<IEmployeesDirectoryRepository, EmployeesDirectoryRepository>();
+            services.AddScoped<IShopWorkTimesRepository, ShopWorkTimesRepository>();
             services.AddScoped<IShopsOpeningService, ShopsOpeningService>();
             services.AddScoped<IShopsInfoService, ShopsInfoService>();
+            services.AddScoped<IShopsToTMSService, ShopsToTMSService>();
+
+            services.AddHostedService<TimedHostedService>();
+            services.AddHostedService<ConsumeScopedServiceHostedService>();
+            services.AddScoped<IScopedProcessingService, ScopedProcessingService>();
+
             services.AddControllers();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "1.0.0",
+                    Title = "ShopServices API",
+                    Description = "Колекція сервісів зв’язаних з Shops-ом",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "the developer",
+                        Email = "i.talavyria@avrora.ua"
+                    },
+                });
+
+                // Set the comments path for the Swagger JSON and UI.
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
 
             MapperConfiguration mapperconfig = new MapperConfiguration(cfg =>
             {
@@ -56,6 +88,14 @@ namespace PresentationLayer
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseStaticFiles();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ShopServices API");
+            });
 
             app.UseHttpsRedirection();
 

@@ -38,9 +38,17 @@ namespace DataAccessLayer.Repositories.EFRepositories
 
             return shops;
         }
+
         public async Task<List<Shop>> getStoresOpeningForMonth(DateTime from, DateTime till)
         {
             List<Shop> shops = await _shopsContext.Shops.Where(x => x.OpenFrom != null && x.OpenFrom.Value >= from && x.OpenFrom.Value <= till).ToListAsync();
+
+            return shops;
+        }
+
+        public async Task<List<Shop>> getShopsForTMS()
+        {
+            List<Shop> shops = await _shopsContext.Shops.Where(x => x.StatusId == 4 || x.StatusId == 8 || x.StatusId == 12 || x.StatusId == 16 || x.StatusId == 20 || x.StatusId == 25).OrderBy(x=>x.ShopNumber).ToListAsync();
 
             return shops;
         }

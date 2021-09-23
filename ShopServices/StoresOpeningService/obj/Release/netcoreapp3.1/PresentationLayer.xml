@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PresentationLayer</name>
+    </assembly>
+    <members>
+        <member name="M:StoresOpeningService.Controllers.shopsInfoController.getAllInfo">
+            <summary>
+            Cписок всіх магазинів
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StoresOpeningService.Controllers.shopsInfoController.getAllInfo(System.Int32)">
+            <summary>
+            Cписок магазинів із зазначеним статусом
+            </summary>
+            <param name="statusId">Номер статусу</param>
+            <returns></returns>
+        </member>
+        <member name="M:StoresOpeningService.Controllers.storesOpeningController.getAllStoresOpening">
+            <summary>
+            Cписок відкриттів у майбутньому
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:StoresOpeningService.Controllers.storesOpeningController.getAllStoresOpening(System.DateTime,System.DateTime)">
+            <summary>
+            Cписок відкриттів у періоді
+            </summary>
+            <param name="from">Початкова дата</param>
+            <param name="till">Кінцева дата</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -16,6 +16,7 @@ namespace BusinessLogicLayer.AutoHelper
             CreateMap<StreetsLocalization, StreetsLocalizationModel>();
             CreateMap<ShopRegionLocalization, ShopRegionLocalizationModel>();
             CreateMap<EmployeesDirectory, EmployeesDirectoryModel>();
+            CreateMap<ShopWorkTime, ShopWorkTimeModel>();
         }
     }
 }
