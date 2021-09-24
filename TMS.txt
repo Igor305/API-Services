@@ -1,0 +1,10 @@
+Продуктив:
+Интеграция: 
+Логин: 248164.api              	base64 (MjQ4MTY0LmFwaQ==)
+Пароль: hfjdcxxpfiks		base64 (aGZqZGN4eHBmaWtz)
+
+Тестовый:
+Интеграция: 
+Логин: 284992.api		base64 (Mjg0OTkyLmFwaQ==)		
+Пароль: fi3i70se5y5		base64 (ZmkzaTcwc2U1eTU=)
+
