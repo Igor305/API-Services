@@ -2,9 +2,9 @@
 
 namespace BusinessLogicLayer.Models.Response
 {
-    public class ShopsInfoResponseModel
+    public class ShopsOpeningResponseModel
     {
-        public List<ShopInfoModel> shopInfoModels { get; set; }
+        public List<ShopOpeningModel> shopOpeningModels { get; set; }
         /// <summary>
         /// Статус
         /// </summary>
@@ -14,9 +14,9 @@ namespace BusinessLogicLayer.Models.Response
         /// </summary>
         public string Message { get; set; }
 
-        public ShopsInfoResponseModel()
+        public ShopsOpeningResponseModel()
         {
-            shopInfoModels = new List<ShopInfoModel>();
+            shopOpeningModels = new List<ShopOpeningModel>();
         }
     }
 }

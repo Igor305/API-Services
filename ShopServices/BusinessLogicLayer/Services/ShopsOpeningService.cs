@@ -1,7 +1,9 @@
-﻿using BusinessLogicLayer.Models.Response;
+﻿using BusinessLogicLayer.Models;
+using BusinessLogicLayer.Models.Response;
 using BusinessLogicLayer.Services.Interfaces;
 using DataAccessLayer.Entities.Shops;
 using DataAccessLayer.Repositories.Interfaces;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,40 +13,79 @@ namespace BusinessLogicLayer.Services
     public class ShopsOpeningService : IShopsOpeningService
     {
         private readonly IShopsRepository _shopsRepository;
+        private readonly IConfiguration _configuration;
 
-        public ShopsOpeningService(IShopsRepository shopsRepository)
+        public ShopsOpeningService(IShopsRepository shopsRepository, IConfiguration configuration)
         {
             _shopsRepository = shopsRepository;
+            _configuration = configuration;
         }
 
-        public async Task<List<ShopsResponseModel>> getAllStoresOpening()
+        public async Task<ShopsOpeningResponseModel> getAllStoresOpening(string key)
         {
-            List<ShopsResponseModel> shopsResponseModels = new List<ShopsResponseModel>();
+            ShopsOpeningResponseModel shopsOpeningResponseModel = new ShopsOpeningResponseModel();
 
-            List<Shop> shops = await _shopsRepository.getAllStoresOpening();
-
-            foreach (Shop shop in shops)
+            try
             {
-                shopsResponseModels.Add(new ShopsResponseModel { ShopNumber = shop.ShopNumber, OpenFrom = shop.OpenFrom });
+                if (key != _configuration["Api:Key"])
+                {
+                    shopsOpeningResponseModel.Status = false;
+                    shopsOpeningResponseModel.Message = "error key";
+
+                    return shopsOpeningResponseModel;
+                }
+
+                List<Shop> shops = await _shopsRepository.getAllStoresOpening();
+
+                foreach (Shop shop in shops)
+                {
+                    shopsOpeningResponseModel.shopOpeningModels.Add(new ShopOpeningModel { ShopNumber = shop.ShopNumber, OpenFrom = shop.OpenFrom });
+                }
+
+                shopsOpeningResponseModel.Status = true;
+                shopsOpeningResponseModel.Message = "successfully";
+            }
+            catch(Exception e)
+            {
+                shopsOpeningResponseModel.Status = false;
+                shopsOpeningResponseModel.Message = e.Message;
             }
 
-            return shopsResponseModels;
+            return shopsOpeningResponseModel;
         }
-        public async Task<List<ShopsResponseModel>> getStoresOpeningForMonth(DateTime from, DateTime till)
+        public async Task<ShopsOpeningResponseModel> getStoresOpeningForMonth(string key, DateTime from, DateTime till)
         {
-            List<DateTime> dateTimes = check(from, till);
+            ShopsOpeningResponseModel shopsOpeningResponseModel = new ShopsOpeningResponseModel();
 
-            List<ShopsResponseModel> shopsResponseModels = new List<ShopsResponseModel>();
-
-            List<Shop> shops = await _shopsRepository.getStoresOpeningForMonth(dateTimes[0], dateTimes[1]);
-
-            foreach (Shop shop in shops)
+            try
             {
-                shopsResponseModels.Add(new ShopsResponseModel { ShopNumber = shop.ShopNumber, OpenFrom = shop.OpenFrom });
+
+                if (key != _configuration["Api:Key"])
+                {
+                    shopsOpeningResponseModel.Status = false;
+                    shopsOpeningResponseModel.Message = "error key";
+
+                    return shopsOpeningResponseModel;
+                }
+
+                List<DateTime> dateTimes = check(from, till);
+
+                List<Shop> shops = await _shopsRepository.getStoresOpeningForMonth(dateTimes[0], dateTimes[1]);
+
+                foreach (Shop shop in shops)
+                {
+                    shopsOpeningResponseModel.shopOpeningModels.Add(new ShopOpeningModel { ShopNumber = shop.ShopNumber, OpenFrom = shop.OpenFrom });
+                }
+            }
+            catch (Exception e)
+            {
+                shopsOpeningResponseModel.Status = false;
+                shopsOpeningResponseModel.Message = e.Message;
             }
 
-            return shopsResponseModels;
+            return shopsOpeningResponseModel;
         }
+
         private List<DateTime> check(DateTime from, DateTime till)
         {
             DateTime dateTime = new DateTime();

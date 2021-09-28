@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace StoresOpeningService.Controllers
 {
     [Produces("application/json")]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class storesOpeningController : ControllerBase
     {
@@ -23,26 +23,40 @@ namespace StoresOpeningService.Controllers
         /// <summary>
         /// Cписок відкриттів у майбутньому
         /// </summary>
+        /// <param name="key">Ключ</param>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     http://shop-services.avrora.lan/api/storesOpening?key=exampleKey
+        ///
+        /// </remarks>
         /// <returns></returns>
         [HttpGet]
-        public async Task<List<ShopsResponseModel>> getAllStoresOpening()
+        public async Task<ShopsOpeningResponseModel> getAllStoresOpening([FromQuery] string key)
         {
-            List<ShopsResponseModel> shopsResponseModels = await _shopService.getAllStoresOpening();
+            ShopsOpeningResponseModel shopsOpeningResponseModel = await _shopService.getAllStoresOpening(key);
 
-            return shopsResponseModels;
+            return shopsOpeningResponseModel;
         }
         /// <summary>
         /// Cписок відкриттів у періоді
         /// </summary>
+        /// <param name="key">Ключ</param>
         /// <param name="from">Початкова дата</param>
         /// <param name="till">Кінцева дата</param>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     http://shop-services.avrora.lan/api/storesOpening/period?key=exampleKey&amp;from=2021-09-28
+        ///
+        /// </remarks>
         /// <returns></returns>
         [HttpGet("period")]
-        public async Task<List<ShopsResponseModel>> getAllStoresOpening([FromQuery]DateTime from, [FromQuery]DateTime till)
+        public async Task<ShopsOpeningResponseModel> getAllStoresOpening([FromQuery] string key, [FromQuery]DateTime from, [FromQuery]DateTime till)
         {
-            List<ShopsResponseModel> shopsResponseModels = await _shopService.getStoresOpeningForMonth(from,till);
+            ShopsOpeningResponseModel shopsOpeningResponseModel = await _shopService.getStoresOpeningForMonth(key,from,till);
 
-            return shopsResponseModels;
+            return shopsOpeningResponseModel;
         }
     }
 }

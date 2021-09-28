@@ -5,7 +5,7 @@ namespace BusinessLogicLayer.Services.Interfaces
 {
     public interface IShopsInfoService
     {
-        public Task<ShopsInfoResponseModel> getInfoForAllShops();
-        public Task<ShopsInfoResponseModel> getInfoForShopsByStatus(int statusId);
+        public Task<ShopsInfoResponseModel> getInfoForAllShops(string key);
+        public Task<ShopsInfoResponseModel> getInfoForShopsByStatus(string key, int statusId);
     }
 }

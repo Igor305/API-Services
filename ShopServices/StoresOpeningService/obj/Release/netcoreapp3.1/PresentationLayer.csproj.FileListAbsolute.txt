@@ -79,3 +79,4 @@ C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningServ
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\bin\Release\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Release\netcoreapp3.1\PresentationLayer.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Release\netcoreapp3.1\PresentationLayer.xml
+C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\bin\Release\netcoreapp3.1\BusinessLogicLayer.xml

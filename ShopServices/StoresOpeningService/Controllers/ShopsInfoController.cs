@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace StoresOpeningService.Controllers
 {
     [Produces("application/json")]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class shopsInfoController : ControllerBase
     {
@@ -22,11 +22,18 @@ namespace StoresOpeningService.Controllers
         /// <summary>
         /// Cписок всіх магазинів
         /// </summary>
+        /// <param name="key">Ключ</param>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     http://shop-services.avrora.lan/api/shopsInfo?key=exampleKey
+        ///
+        /// </remarks>
         /// <returns></returns>
         [HttpGet]
-        public async Task<ShopsInfoResponseModel> getAllInfo()
+        public async Task<ShopsInfoResponseModel> getAllInfo([FromQuery] string key)
         {
-            ShopsInfoResponseModel shopsInfoResponseModel = await _shopsInfoService.getInfoForAllShops();
+            ShopsInfoResponseModel shopsInfoResponseModel = await _shopsInfoService.getInfoForAllShops(key);
 
             return shopsInfoResponseModel;
         }
@@ -34,12 +41,19 @@ namespace StoresOpeningService.Controllers
         /// <summary>
         /// Cписок магазинів із зазначеним статусом
         /// </summary>
+        /// <param name="key">Ключ</param>
         /// <param name="statusId">Номер статусу</param>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     http://shop-services.avrora.lan/api/shopsInfo/status?key=exampleKey&amp;statusId=25
+        ///
+        /// </remarks>
         /// <returns></returns>
         [HttpGet("status")]
-        public async Task<ShopsInfoResponseModel> getAllInfo([FromQuery] int statusId)
+        public async Task<ShopsInfoResponseModel> getAllInfo([FromQuery] string key, [FromQuery] int statusId)
         {
-            ShopsInfoResponseModel shopsInfoResponseModel = await _shopsInfoService.getInfoForShopsByStatus(statusId);
+            ShopsInfoResponseModel shopsInfoResponseModel = await _shopsInfoService.getInfoForShopsByStatus(key,statusId);
 
             return shopsInfoResponseModel;
         }

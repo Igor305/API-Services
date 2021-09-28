@@ -61,5 +61,6 @@ C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningServ
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Release\netcoreapp3.1\PubTmp\Out\BusinessLogicLayer.dll
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Release\netcoreapp3.1\PubTmp\Out\DataAccessLayer.dll
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Release\netcoreapp3.1\PubTmp\Out\BusinessLogicLayer.pdb
+C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Release\netcoreapp3.1\PubTmp\Out\BusinessLogicLayer.xml
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Release\netcoreapp3.1\PubTmp\Out\DataAccessLayer.pdb
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\StoresOpeningService\obj\Release\netcoreapp3.1\PubTmp\Out\PresentationLayer.xml

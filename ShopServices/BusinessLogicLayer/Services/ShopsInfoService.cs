@@ -5,6 +5,7 @@ using BusinessLogicLayer.Services.Interfaces;
 using DataAccessLayer.Entities.Exchange;
 using DataAccessLayer.Entities.Shops;
 using DataAccessLayer.Repositories.Interfaces;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +24,11 @@ namespace BusinessLogicLayer.Services
         private readonly IEmployeesDirectoryRepository _employeesDirectoryRepository;
 
         private readonly IMapper _mapper;
+        private readonly IConfiguration _configuration;
 
         public ShopsInfoService(IShopsRepository shopsRepository, IRegionsLocalizationRepository regionsLocalizationRepository, IDistrictsLocalizationRepository districtsLocalizationRepository,
                                 IShopRegionLocalizationRepository shopRegionLocalizationRepository, ICitiesLocalizationRepository citiesLocalizationRepository, IStreetsLocalizationRepository streetsLocalizationRepository,
-                                IEmployeesDirectoryRepository employeesDirectoryRepository, IMapper mapper)
+                                IEmployeesDirectoryRepository employeesDirectoryRepository, IMapper mapper, IConfiguration configuration)
         {
             _shopsRepository = shopsRepository;
             _regionsLocalizationRepository = regionsLocalizationRepository;
@@ -37,11 +39,19 @@ namespace BusinessLogicLayer.Services
             _employeesDirectoryRepository = employeesDirectoryRepository;
 
             _mapper = mapper;
+            _configuration = configuration;
         }
 
-        public async Task<ShopsInfoResponseModel> getInfoForAllShops()
+        public async Task<ShopsInfoResponseModel> getInfoForAllShops(string key)
         {
             ShopsInfoResponseModel shopsInfoResponseModel = new ShopsInfoResponseModel();
+
+            if (key != _configuration["Api:Key"])
+            {
+                shopsInfoResponseModel.Status = false;
+                shopsInfoResponseModel.Message = "error key";
+                return shopsInfoResponseModel;
+            }
 
             try
             {
@@ -58,9 +68,16 @@ namespace BusinessLogicLayer.Services
             return shopsInfoResponseModel;
         }
 
-        public async Task<ShopsInfoResponseModel> getInfoForShopsByStatus(int statusId)
+        public async Task<ShopsInfoResponseModel> getInfoForShopsByStatus(string key, int statusId)
         {
             ShopsInfoResponseModel shopsInfoResponseModel = new ShopsInfoResponseModel();
+
+            if (key != _configuration["Api:Key"])
+            {
+                shopsInfoResponseModel.Status = false;
+                shopsInfoResponseModel.Message = "error key";
+                return shopsInfoResponseModel;
+            }
 
             try
             {

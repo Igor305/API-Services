@@ -22,3 +22,5 @@ C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\BusinessLogicLaye
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\BusinessLogicLayer\obj\Release\netcoreapp3.1\BusinessLogicLayer.dll
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\BusinessLogicLayer\obj\Release\netcoreapp3.1\BusinessLogicLayer.pdb
 C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\BusinessLogicLayer\obj\Release\netcoreapp3.1\BusinessLogicLayer.csproj.AssemblyReference.cache
+C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\BusinessLogicLayer\bin\Release\netcoreapp3.1\BusinessLogicLayer.xml
+C:\Users\i.talavyria\Desktop\project\API-Services\ShopServices\BusinessLogicLayer\obj\Release\netcoreapp3.1\BusinessLogicLayer.xml

@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BusinessLogicLayer</name>
+    </assembly>
+    <members>
+        <member name="P:BusinessLogicLayer.Models.Response.ShopsInfoResponseModel.Status">
+            <summary>
+            Статус
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.Response.ShopsInfoResponseModel.Message">
+            <summary>
+            Текст помилки
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.Response.ShopsOpeningResponseModel.Status">
+            <summary>
+            Статус
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.Response.ShopsOpeningResponseModel.Message">
+            <summary>
+            Текст помилки
+            </summary>
+        </member>
+        <member name="T:BusinessLogicLayer.Models.ShopInfoModel">
+            <summary>
+            Інформація по ТТ
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.ShopNumber">
+            <summary>
+            Номер ТТ
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.StatusId">
+            <summary>
+            Статуc
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.Region">
+            <summary>
+            Область
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.District">
+            <summary>
+            Район
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.City">
+            <summary>
+            Місто
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.Street">
+            <summary>
+            Вулиця
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.Address">
+            <summary>
+            Адреса
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.AddressComment">
+            <summary>
+            Коментарій щодо адреси
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.Latitude">
+            <summary>
+            Широта
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.Longitude">
+            <summary>
+            Довгота
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.ShopWorkTimeString">
+            <summary>
+            Час роботи ТТ
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.ShopRegion">
+            <summary>
+            Регіон
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.TerritorialManager">
+            <summary>
+            Територіальний менеджер
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.RegionalManager">
+            <summary>
+            Регіональний менеджер
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.Administrator">
+            <summary>
+            Адміністратор
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.DeputyAdministrator">
+            <summary>
+            Заступник адміністратора
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopInfoModel.WorkPhoneNumber">
+            <summary>
+            Номер ТТ
+            </summary>
+        </member>
+        <member name="T:BusinessLogicLayer.Models.ShopOpeningModel">
+            <summary>
+            Відкриття ТТ
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopOpeningModel.ShopNumber">
+            <summary>
+            Номер ТТ
+            </summary>
+        </member>
+        <member name="P:BusinessLogicLayer.Models.ShopOpeningModel.OpenFrom">
+            <summary>
+            Дата відкриття
+            </summary>
+        </member>
+    </members>
+</doc>
