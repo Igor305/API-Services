@@ -76,6 +76,9 @@ namespace BusinessLogicLayer.Services
                 {
                     shopsOpeningResponseModel.shopOpeningModels.Add(new ShopOpeningModel { ShopNumber = shop.ShopNumber, OpenFrom = shop.OpenFrom });
                 }
+
+                shopsOpeningResponseModel.Status = true;
+                shopsOpeningResponseModel.Message = "successfully";
             }
             catch (Exception e)
             {
